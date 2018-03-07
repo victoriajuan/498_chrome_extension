@@ -1,11 +1,7 @@
 // Copyright (c) 2014 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-var input = document.getElementById('value');
-document.getElementById('submit').addEventListener('click', () => {
-  alert("ASDA");
-  set_auto_close(input.val()*1000);
-});
+
 
 // $("#submit").click(function() {
 //   let sec = $("#value").val()
@@ -32,14 +28,6 @@ document.getElementById('submit').addEventListener('click', () => {
 // 		alert("Permitted!");
 // 	}
 // }
-
-function set_auto_close(time) {
-	setTimeout(force_close, time);
-}
-
-function force_close() {
-	window.open('','_self').close();
-}
 
 // function force_open_sintyoku() {
 // 	window.open("http://kkbnart.6.ql.bz/sintyoku2.html", null);
@@ -68,3 +56,41 @@ function force_close() {
 // 	seconds = dt.getSeconds();
 // 	console.log(hours + ":" + minutes + ":" + seconds);
 // }
+
+document.addEventListener('DOMContentLoaded', () => {
+  var input = document.getElementById('value');
+  document.getElementById('submit').addEventListener('click', () => {
+    set_auto_close(input.value *1000);
+  });
+  // getCurrentTabUrl((url) => {
+  //   var input = document.getElementById('value');
+
+  //   // Load the saved background color for this page and modify the dropdown
+  //   // value, if needed.
+  //   getSavedBackgroundColor(url, (savedColor) => {
+  //     if (savedColor) {
+  //       changeBackgroundColor(savedColor);
+  //       dropdown.value = savedColor;
+  //     }
+  //   });
+
+  //   // Ensure the background color is changed and saved when the dropdown
+  //   // selection changes.
+  //   dropdown.addEventListener('change', () => {
+  //     changeBackgroundColor(dropdown.value);
+  //     saveBackgroundColor(url, dropdown.value);
+  //   });
+  // });
+});
+
+function set_auto_close(time) {
+	setTimeout(force_close, time);
+}
+
+function force_close() {
+  window.close();
+  window.open('','_self').close();
+  chrome.windows.getCurrent(function(w) {
+    chrome.windows.remove(w.id);
+});
+}
