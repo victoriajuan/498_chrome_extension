@@ -7,19 +7,21 @@
     "browser_action":{
         "default_icon": "icon.png",
         "default_popup": "popup.html",
-        "default_title": "Change Color Here!"
+        "default_title": "FOCUS ENFORCER TO THE RESCUE"
     },
     "permissions": [
         "tabs",
         "activeTab",
         "storage",
         "notifications",
-        "sessions"
+        "sessions",
+        "alarms"
     ],
     "web_accessible_resources": [
         "icon.png"
     ],
     "background":{
-        "scripts":["background.js"]
+        "scripts":["eventPage.js"],
+        "persistent":false
     }
   }
