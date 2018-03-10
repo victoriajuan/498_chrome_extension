@@ -1,0 +1,10 @@
+- App's name
+    - Focus Enforcer
+- Who built it (your names)
+    - Victoria Juan and Yuyue Zhu
+- A brief description of its purpose (for context)
+    - The purpose of our extension is to help people who have problems controlling their online time. 
+- How to install it
+    - First clone the GitHub repository to our local machine. Then go to chrome:extensions to reload our extension, then you are free to explore all the features!
+- Basic instructions on how to use it.
+    - After installation, you could click on our logo and the small window will appear. In the window, the user can enter a time in an hour which they want to be alarmed after this time. By clicking the "submit" button, the system will automatically start the clock from the time now. During this time, the user can also cancel the enforcer if they change their mind by clicking the "cancel" button. When is one minute away from the time set by the user, our extension will pop up a Chrome rich notification to alarm the user that the time is almost up, they should either leave or the tabs will be closed. Another feature we implemented to prevent if the user didn't have time to save the important things they were working on before the tabs closed, the user will be able to easily click the "restore" button to restore the previously closed tabs by our extension.
