@@ -9,14 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
       set_auto_close(input.value);
       if(input.value >= 1){
         chrome.alarms.create("oneMinute",{when:Date.now()+ (input.value - 1)*60000})
-      }
-      chrome.notifications.create('reminder',
+      } else {
+        chrome.notifications.create('lessThanOneReminder',
       {
         type: 'basic',
         title: 'Enforcement Incoming',
-        message: 'Less than 1 minute left',
+        message: 'Less than 1 minutes left',
         iconUrl: 'icon.png'
       }, function(notificationId){});
+      }
     } else {
       alert("Invalid Input");
     }
