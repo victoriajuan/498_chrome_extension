@@ -1,19 +1,18 @@
 chrome.alarms.onAlarm.addListener( function(alarm){
-    if (alarm.name == "oneMinuteAlarm") {
-        // chrome.alarms.clear("oneMinuteAlarm");
-        var options = {
+    if(alarm.name == "oneMinute"){
+        chrome.notifications.create('reminder',
+        {
             type: 'basic',
-            title: 'keep burning',
-            message: 'You have 1 minutes left',
-            iconUrl:'icon.png'
-          };
-          chrome.notifications.create('reminder',options, function(notificationId){
-            console.log("!!!!!!!");
-          });
-    } else if(alarm.name == "autoCloseAlarm") {
+            title: 'Enforcement Incoming',
+            message: 'You have 1 minute left',
+            iconUrl: 'icon.png'
+        }, function(notificationId){});
+    }
+    else{
         chrome.alarms.clearAll();
         chrome.windows.getCurrent(function(w) {
             chrome.windows.remove(w.id);
-        });
+        })
     }
 })
+
