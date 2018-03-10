@@ -14,5 +14,6 @@ chrome.alarms.onAlarm.addListener( function(alarm){
             chrome.windows.remove(w.id);
         })
     }
+    chrome.notifications.clear("reminder");
 })
 
