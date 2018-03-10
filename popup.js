@@ -16,11 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         title: 'Enforcement Incoming',
         message: 'Less than 1 minutes left',
         iconUrl: 'icon.png'
-      }, function(notificationId){});
+      }, function(){});
       }
     } else {
       alert("Invalid Input");
     }
+    chrome.notifications.clear("lessThanOneReminder")
   });
   document.getElementById('cancel').addEventListener('click', () => {
     cancel();
