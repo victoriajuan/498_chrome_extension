@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(input.value > 0){
       set_auto_close(input.value);
       if(input.value >= 1){
-        chrome.alarms.create("oneMinute",{when:Date.now()+ (input.value - 1)*360000})
+        chrome.alarms.create("oneMinute",{when:Date.now()+ input.value*3600000-60000})
       } else {
         chrome.notifications.create('lessThanOneReminder',
       {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function set_auto_close(time) {
-  chrome.alarms.create({when:Date.now()+time*360000});
+  chrome.alarms.create({when:Date.now()+time*3600000});
 }
 
 function restore(){
