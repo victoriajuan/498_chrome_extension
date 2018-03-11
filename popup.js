@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(input.value > 0){
       set_auto_close(input.value);
       //one minutes warning
-      if(input.value >= 1){
+      if(input.value >= (1/60)){
         chrome.alarms.create("oneMinute",{when:Date.now()+ input.value*3600000-60000})
       } else {
         chrome.notifications.create('lessThanOneReminder',
